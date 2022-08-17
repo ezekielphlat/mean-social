@@ -81,7 +81,11 @@ router.get("/timeline/:userId", async (req, res) => {
         return Post.find({ userId: friendId });
       })
     );
-    res.status(200).json(userPosts.concat(...friendPosts));
+    const allPosts = userPosts.concat(...friendPosts);
+    if(allPosts === null){
+      res.status(200).json([]);
+    }
+    res.status(200).json(allPosts);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -98,5 +102,8 @@ router.get("/profile/:username", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
 
 module.exports = router;
