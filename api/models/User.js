@@ -51,7 +51,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         max:50
     },
-    relationships:{
+    relationship:{
         type:Number,
         enum:[1,2,3]
     }
