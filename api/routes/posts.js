@@ -82,7 +82,7 @@ router.get("/timeline/:userId", async (req, res) => {
       })
     );
     const allPosts = userPosts.concat(...friendPosts);
-    if(allPosts === null){
+    if (allPosts === null) {
       res.status(200).json([]);
     }
     res.status(200).json(allPosts);
@@ -102,8 +102,5 @@ router.get("/profile/:username", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 module.exports = router;
